@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+openpyxl
+langchain
+langchain_community
+openai
+pydantic
+pandas
+openai
+pydantic

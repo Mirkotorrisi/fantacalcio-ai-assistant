@@ -1,0 +1,147 @@
+{
+  "id": 1,
+  "lastUpdate": "2023-10-01T12:00:00Z",
+  "current": "defenders",
+  "teams": [
+    {
+      "id": 101,
+      "name": "Roster Team",
+      "budget": 0,
+      "players": {
+        "goalkeepers": [
+          {
+            "id": 1,
+            "name": "Alice",
+            "price": 50
+          },
+          {
+            "id": 2,
+            "name": "Bob",
+            "price": 40
+          },
+          {
+            "id": 3,
+            "name": "Charlie",
+            "price": 30
+          }
+        ],
+        "defenders": [
+          {
+            "id": 4,
+            "name": "David",
+            "price": 60
+          },
+          {
+            "id": 5,
+            "name": "Eve",
+            "price": 50
+          },
+          {
+            "id": 5,
+            "name": "Eve",
+            "price": 50
+          },
+          {
+            "id": 5,
+            "name": "Eve",
+            "price": 50
+          },
+          {
+            "id": 5,
+            "name": "Eve",
+            "price": 50
+          },
+          {
+            "id": 5,
+            "name": "Eve",
+            "price": 50
+          },
+          {
+            "id": 5,
+            "name": "Eve",
+            "price": 50
+          },
+          {
+            "id": 5,
+            "name": "Eve",
+            "price": 50
+          }
+        ],
+        "midfielders": [
+          {
+            "id": 6,
+            "name": "Frank",
+            "price": 70
+          },
+          {
+            "id": 7,
+            "name": "Grace",
+            "price": 60
+          },
+          {
+            "id": 8,
+            "name": "Hannah",
+            "price": 50
+          },
+          {
+            "id": 8,
+            "name": "Hannah",
+            "price": 50
+          },
+          {
+            "id": 8,
+            "name": "Hannah",
+            "price": 50
+          },
+          {
+            "id": 8,
+            "name": "Hannah",
+            "price": 50
+          },
+          {
+            "id": 8,
+            "name": "Hannah",
+            "price": 50
+          },
+          {
+            "id": 8,
+            "name": "Hannah",
+            "price": 50
+          }
+        ],
+        "forwards": [
+          {
+            "id": 9,
+            "name": "Ian",
+            "price": 80
+          },
+          {
+            "id": 10,
+            "name": "Jack",
+            "price": 70
+          },
+          {
+            "id": 11,
+            "name": "Kate",
+            "price": 60
+          },
+          {
+            "id": 11,
+            "name": "Kate",
+            "price": 60
+          },
+          {
+            "id": 11,
+            "name": "Kate",
+            "price": 60
+          },
+          {
+            "id": 11,
+            "name": "Kate",
+            "price": 60
+          }
+        ]
+      }
+    }
+  ]
+}
