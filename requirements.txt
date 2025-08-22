@@ -5,6 +5,5 @@ langchain
 langchain_community
 openai
 pydantic
-pandas
 openai
 pydantic

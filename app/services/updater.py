@@ -2,7 +2,7 @@
 from app.services.nlp_parser import parse_auction_text
 from app.core.redis_manager import get_rosters, save_rosters
 from app.models.schema import Roster
-import pandas as pd
+import csv
 import logging
 
 players_slots = {
@@ -22,10 +22,15 @@ def process_auction_update(input_text: str, session_id: str, current: str) -> Ro
         raise ValueError("Invalid current role specified")
     # Load the correct players csv file based on the current (goalkeepers, defenders, midfielders, forwards)
     csv_file_path = f'data/{current}.csv'
-    players_df = pd.read_csv(csv_file_path)
+    # Read players from CSV using built-in csv module
+    players_list = []
+    with open(csv_file_path, newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            players_list.append(row['Nome'])
     team_names = [team.get('name') for team in session.get('teams', [])]
-    logging.info(f"start parsing: {input_text}, {team_names}, {current} players: {players_df['Nome'].count()}")
-    parsed = parse_auction_text(input_text, players_df, team_names)
+    logging.info(f"start parsing: {input_text}, {team_names}, {current} players: {len(players_list)}")
+    parsed = parse_auction_text(input_text, players_list, team_names)
     roster = get_rosters(session_id)
     logging.info(f"Parsed auction: {parsed}")
     # Here we check if the player was already present in any team, if so, raise an error
@@ -44,7 +49,8 @@ def process_auction_update(input_text: str, session_id: str, current: str) -> Ro
     team['players'][current].append({"name": parsed.player, "price": parsed.price})
     team['budget'] -= parsed.price
     # Update the last modified time
-    roster['lastUpdate'] = pd.Timestamp.now().isoformat()
+    import datetime
+    roster['lastUpdate'] = datetime.datetime.now().isoformat()
     # Update the current role
     roster['current'] = current
     save_rosters(session_id, roster)

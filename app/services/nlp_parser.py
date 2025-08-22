@@ -1,4 +1,3 @@
-import pandas as pd
 from langchain_community.chat_models import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel, Field
@@ -10,8 +9,7 @@ class AuctionParse(BaseModel):
     team: str = Field(...)
     price: int = Field(...)
 
-def parse_auction_text(input_text: str, players_df: pd.DataFrame, team_names: list) -> dict:
-    players_list = players_df['Nome'].tolist()
+def parse_auction_text(input_text: str, players_list: list, team_names: list) -> dict:
 
     parse_auction_template = '''
     Given a human prompt about a player to buy, and a team who bought it, 
