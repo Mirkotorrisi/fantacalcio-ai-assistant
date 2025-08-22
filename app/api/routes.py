@@ -12,13 +12,17 @@ router = APIRouter()
 @router.post("/init-session")
 def init_session(request: InitSessionRequest):
     """Initializes a new session with 8 teams and budget."""
-    logging.info(f"Initializing session with teams: {request.team_names} and budget: {request.budget}")
-    valid_team_counts = {6, 8, 10, 12}
-    if len(request.team_names) not in valid_team_counts:
-        raise HTTPException(status_code=400, detail=f"team_names must contain exactly {', '.join(map(str, valid_team_counts))} names.")
-    session_id, roster = create_new_session(request.team_names, request.budget)
-    logging.info(f"Session initialized with ID: {session_id}")
-    return {"session_id": session_id, "roster": roster}
+    try:
+        logging.info(f"Initializing session with teams: {request.team_names} and budget: {request.budget}")
+        valid_team_counts = {6, 8, 10, 12}
+        if len(request.team_names) not in valid_team_counts:
+            raise HTTPException(status_code=400, detail=f"team_names must contain exactly {', '.join(map(str, valid_team_counts))} names.")
+        session_id, roster = create_new_session(request.team_names, request.budget)
+        logging.info(f"Session initialized with ID: {session_id}")
+        return {"session_id": session_id, "roster": roster}
+    except Exception as e:
+        logging.error(f"Error initializing session: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/update-auction", response_model=Roster)
 def update_auction(request: UpdateAuctionRequest):
@@ -34,12 +38,21 @@ def update_auction(request: UpdateAuctionRequest):
 @router.get("/rosters")
 def get_user_rosters(session_id: str = Query(...)):
     """Returns the current rosters."""
-    return {"rosters": get_rosters(session_id)}
+    try: 
+        return {"rosters": get_rosters(session_id)}
+    except Exception as e:
+        logging.error(f"Error fetching rosters: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 @router.get("/players-list")
 def get_user_players_list(session_id: str = Query(...)):
     """Returns the current players list."""
-    logging.info(f"Fetching players list for session: {session_id}")
-    rosters = get_rosters(session_id)
-    players_list = load_available_players_list(Roster(**rosters))
-    return players_list
+    try:
+        logging.info(f"Fetching players list for session: {session_id}")
+        rosters = get_rosters(session_id)
+        players_list = load_available_players_list(Roster(**rosters))
+        return players_list
+    except Exception as e:
+        logging.error(f"Error fetching players list: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
