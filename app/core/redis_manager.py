@@ -7,11 +7,11 @@ REDIS_PORT = os.getenv("REDIS_PORT", 6379)
 REDIS_PASSWORD = os.getenv("REDIS_PASSWORD", "your_default_password")
 
 redis_client = redis.Redis(
-    host='redis-12223.c17.us-east-1-4.ec2.redns.redis-cloud.com',
-    port=12223,
+    host=REDIS_URL,
+    port=REDIS_PORT,
     decode_responses=True,
     username="default",
-    password="o5dm9N1Z2zFZxLfQ3gW4gl6QyYE2JrWu",
+    password=REDIS_PASSWORD
 )
 
 def get_rosters(session_id: str):
