@@ -2,13 +2,14 @@
 from fastapi import APIRouter, Query, HTTPException
 from app.models.schema import InitSessionRequest, UpdateAuctionRequest, Roster
 from app.services.create_new_session import create_new_session
+from app.services.get_players_list import load_available_players_list
 from app.services.updater import process_auction_update
 from app.core.redis_manager import get_rosters
 import logging
 
 router = APIRouter()
 
-@router.post("/init_session")
+@router.post("/init-session")
 def init_session(request: InitSessionRequest):
     """Initializes a new session with 8 teams and budget."""
     logging.info(f"Initializing session with teams: {request.team_names} and budget: {request.budget}")
@@ -19,7 +20,7 @@ def init_session(request: InitSessionRequest):
     logging.info(f"Session initialized with ID: {session_id}")
     return {"session_id": session_id, "roster": roster}
 
-@router.post("/update_auction", response_model=Roster)
+@router.post("/update-auction", response_model=Roster)
 def update_auction(request: UpdateAuctionRequest):
     logging.info(f"Updating auction for session: {request.session_id}")
     """Updates the current rosters based on the user's prompt."""
@@ -30,7 +31,15 @@ def update_auction(request: UpdateAuctionRequest):
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@router.get("/roster")
-def get_user_roster(session_id: str = Query(...)):
+@router.get("/rosters")
+def get_user_rosters(session_id: str = Query(...)):
     """Returns the current rosters."""
-    return {"roster": get_rosters(session_id)}
+    return {"rosters": get_rosters(session_id)}
+
+@router.get("/players-list")
+def get_user_players_list(session_id: str = Query(...)):
+    """Returns the current players list."""
+    logging.info(f"Fetching players list for session: {session_id}")
+    rosters = get_rosters(session_id)
+    players_list = load_available_players_list(Roster(**rosters))
+    return players_list

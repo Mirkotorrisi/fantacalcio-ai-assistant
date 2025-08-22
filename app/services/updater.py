@@ -1,7 +1,9 @@
 
 from app.services.nlp_parser import parse_auction_text
+from app.services.get_players_list import load_csv_names_list
 from app.core.redis_manager import get_rosters, save_rosters
 from app.models.schema import Roster
+from app.configs.consts import ALL_ROLES    
 import csv
 import logging
 
@@ -18,16 +20,10 @@ def process_auction_update(input_text: str, session_id: str, current: str) -> Ro
         raise ValueError("Session not found")
     if not current:
         current = session.get('current', 'goalkeepers')
-    if current not in ['goalkeepers', 'defenders', 'midfielders', 'forwards']:
+    if current not in ALL_ROLES:
         raise ValueError("Invalid current role specified")
     # Load the correct players csv file based on the current (goalkeepers, defenders, midfielders, forwards)
-    csv_file_path = f'data/{current}.csv'
-    # Read players from CSV using built-in csv module
-    players_list = []
-    with open(csv_file_path, newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            players_list.append(row['Nome'])
+    players_list = load_csv_names_list(current)
     team_names = [team.get('name') for team in session.get('teams', [])]
     logging.info(f"start parsing: {input_text}, {team_names}, {current} players: {len(players_list)}")
     parsed = parse_auction_text(input_text, players_list, team_names)

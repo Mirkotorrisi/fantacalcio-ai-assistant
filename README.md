@@ -42,20 +42,21 @@ FastAPI backend for managing fantasy football auctions with NLP parsing (LangCha
 ```json
 {
   "session_id": "...",
-  "rose": { ... }
+  "rosters": { ... }
 }
 ```
 
 ### 2. Update the roster with an auction sentence
 
-`POST /update_auction`
+`POST /update_action`
 
 **Body:**
 
 ```json
 {
   "input_text": "dzeko teamX 150",
-  "session_id": "..."
+  "session_id": "...",
+  "current": "forwards"
 }
 ```
 
@@ -70,15 +71,34 @@ FastAPI backend for managing fantasy football auctions with NLP parsing (LangCha
 }
 ```
 
-### 3. Get the current roster
+### 4. Get the list of available players for a role
 
-`GET /rose?session_id=...`
+`GET /players_list?session_id=your-session-id`
+
+**Query Parameters:**
+
+- `session_id`: The rosters session id to fetch players for (required)
 
 **Response:**
 
 ```json
 {
-  "rose": { ... }
+  "goalkeepers": [
+    { "name": "Player1", "price": 123 },
+    { "name": "Player2", "price": 12 }
+  ],
+  "defenders": [
+    { "name": "Player1", "price": 123 },
+    { "name": "Player2", "price": 12 }
+  ],
+  "midfielders": [
+    { "name": "Player1", "price": 123 },
+    { "name": "Player2", "price": 12 }
+  ],
+  "forwards": [
+    { "name": "Player1", "price": 123 },
+    { "name": "Player2", "price": 12 }
+  ]
 }
 ```
 
