@@ -11,7 +11,9 @@ FastAPI backend for managing fantasy football auctions with NLP parsing (LangCha
    ```
 3. **Configure Redis** and setup the URL in the `.env` file
    ```python
-   REDIS_URL = "redis://your-redis-url:6379/0"
+   REDIS_URL = "your-redis-url"
+   REDIS_PORT = "6379"
+   REDIS_PASSWORD = "your-redis-password"
    ```
 4. **Configure your OpenAI key** in `.env` file:
    ```python
