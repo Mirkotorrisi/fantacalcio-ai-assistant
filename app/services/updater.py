@@ -55,5 +55,6 @@ def process_auction_update(input_text: str, session_id: str, current: str) -> Ro
         id=roster['id'],
         lastUpdate=roster['lastUpdate'],
         current=roster['current'],
-        teams=roster['teams']
+        teams=roster['teams'],
+        initialBudget=roster['initialBudget']
     )
