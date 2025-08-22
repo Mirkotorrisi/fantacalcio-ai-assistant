@@ -18,7 +18,8 @@ def create_new_session(team_names: list[str], budget: int = 500):
         id=uuid.uuid4().int >> 96,
         lastUpdate="",
         current="goalkeepers",
-        teams=teams
+        teams=teams,
+        initial_budget=budget
     )
     save_rosters(session_id, roster.model_dump())
     return session_id, roster

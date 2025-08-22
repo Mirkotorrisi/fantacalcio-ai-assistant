@@ -39,7 +39,8 @@ def update_auction(request: UpdateAuctionRequest):
 def get_user_rosters(session_id: str = Query(...)):
     """Returns the current rosters."""
     try: 
-        return {"rosters": get_rosters(session_id)}
+        rosters = get_rosters(session_id)
+        return rosters
     except Exception as e:
         logging.error(f"Error fetching rosters: {e}")
         raise HTTPException(status_code=500, detail=str(e))
