@@ -33,4 +33,4 @@ class Roster(BaseModel):
     lastUpdate: str
     current: str
     teams: list[Team]
-    initialBudget: int
+    initialBudget: int | None = None
