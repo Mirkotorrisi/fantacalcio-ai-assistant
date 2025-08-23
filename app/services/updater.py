@@ -1,4 +1,6 @@
 
+from typing import List
+from app.services.get_session_and_players import get_session_and_players
 from app.services.nlp_parser import parse_auction_text
 from app.services.get_players_list import load_csv_names_list
 from app.core.redis_manager import get_rosters, save_rosters
@@ -14,26 +16,15 @@ players_slots = {
     "forwards": 6
 }
 
-def process_auction_update(input_text: str, session_id: str, current: str) -> Roster:
-    session = get_rosters(session_id)
-    if not session:
-        raise ValueError("Session not found")
-    if not current:
-        current = session.get('current', 'goalkeepers')
-    if current not in ALL_ROLES:
-        raise ValueError("Invalid current role specified")
-    # Load the correct players csv file based on the current (goalkeepers, defenders, midfielders, forwards)
-    players_list = load_csv_names_list(current)
-    team_names = [team.get('name') for team in session.get('teams', [])]
+def process_auction_update(team_names: List[str], players_list: List[str], session: Roster, input_text: str, session_id: str, current: str) -> Roster:
     logging.info(f"start parsing: {input_text}, {team_names}, {current} players: {len(players_list)}")
     parsed = parse_auction_text(input_text, players_list, team_names)
-    roster = get_rosters(session_id)
     logging.info(f"Parsed auction: {parsed}")
     # Here we check if the player was already present in any team, if so, raise an error
-    if any(parsed.player == p['name'] for team in roster['teams'] for p in team['players'][current]):
+    if any(parsed.player == p['name'] for team in session['teams'] for p in team['players'][current]):
         raise ValueError(f"Player {parsed.player} is already assigned to a team")
     # Find team in the roster json
-    team = next((item for item in roster['teams'] if item["name"] == parsed.team), None)
+    team = next((item for item in session['teams'] if item["name"] == parsed.team), None)
     if not team:
         raise ValueError("Team not found in roster")
     # Check if the team can afford the new player
@@ -46,15 +37,15 @@ def process_auction_update(input_text: str, session_id: str, current: str) -> Ro
     team['budget'] -= parsed.price
     # Update the last modified time
     import datetime
-    roster['lastUpdate'] = datetime.datetime.now().isoformat()
+    session['lastUpdate'] = datetime.datetime.now().isoformat()
     # Update the current role
-    roster['current'] = current
-    save_rosters(session_id, roster)
+    session['current'] = current
+    save_rosters(session_id, session)
 
     return Roster(
-        id=roster['id'],
-        lastUpdate=roster['lastUpdate'],
-        current=roster['current'],
-        teams=roster['teams'],
-        initialBudget=roster['initialBudget']
+        id=session['id'],
+        lastUpdate=session['lastUpdate'],
+        current=session['current'],
+        teams=session['teams'],
+        initialBudget=session['initialBudget']
     )

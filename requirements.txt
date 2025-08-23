@@ -8,3 +8,5 @@ pydantic
 openai
 pydantic
 redis
+python-multipart
+google-cloud-speech

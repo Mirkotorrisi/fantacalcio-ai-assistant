@@ -1,6 +1,8 @@
 
-from fastapi import APIRouter, Query, HTTPException
+from fastapi import APIRouter, File, Form, Query, HTTPException, UploadFile
 from app.models.schema import InitSessionRequest, UpdateAuctionRequest, Roster
+from app.services.get_session_and_players import get_session_and_players
+from app.services.transcribe_audio import transcribe_audio
 from app.services.create_new_session import create_new_session
 from app.services.get_players_list import load_available_players_list
 from app.services.updater import process_auction_update
@@ -29,10 +31,27 @@ def update_auction(request: UpdateAuctionRequest):
     logging.info(f"Updating auction for session: {request.session_id}")
     """Updates the current rosters based on the user's prompt."""
     try:
-        return process_auction_update(request.input_text, request.session_id, request.current)
+        session, players_list, team_names = get_session_and_players(request.session_id, request.current)
+        return process_auction_update(team_names, players_list, session, request.input_text, request.session_id, request.current)
     except Exception as e:
         logging.error(f"Error updating auction: {e}")
         raise HTTPException(status_code=400, detail=str(e))
+
+@router.post("/update-auction-transcription", response_model=Roster)
+async def update_auction_transcription(file: UploadFile = File(...), session_id: str = Form(...), current: str = Form(...)):
+    """
+    Receives an audio file from the frontend, sends it to the Whisper API,
+    and returns the transcription.
+    """
+    logging.info(f"Transcribing audio for session: {session_id}")
+    try:
+        session, players_list, team_names = get_session_and_players(session_id, current)
+        transcribed_text = await transcribe_audio(team_names, players_list,file)
+        logging.info(f"Transcribed text for session {session_id}: {transcribed_text}")
+        return process_auction_update(team_names, players_list, session, transcribed_text, session_id, current)
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/rosters")

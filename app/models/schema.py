@@ -6,7 +6,6 @@ class UpdateAuctionRequest(BaseModel):
     session_id: str
     current: str
 
-
 class InitSessionRequest(BaseModel):
     team_names: list[str]
     budget: int = 500
