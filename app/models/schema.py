@@ -4,7 +4,7 @@ from pydantic import BaseModel
 class UpdateAuctionRequest(BaseModel):
     input_text: str
     session_id: str
-    current: str
+    current_role: str
 
 class InitSessionRequest(BaseModel):
     team_names: list[str]
@@ -14,6 +14,8 @@ class InitSessionRequest(BaseModel):
 class Player(BaseModel):
     name: str
     price: int
+    id: str
+    team: str
 
 class PlayersByRole(BaseModel):
     goalkeepers: list[Player]
@@ -30,6 +32,6 @@ class Team(BaseModel):
 class Roster(BaseModel):
     id: int
     lastUpdate: str
-    current: str
+    current_role: str
     teams: list[Team]
     initialBudget: int | None = None

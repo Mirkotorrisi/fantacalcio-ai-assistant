@@ -17,7 +17,7 @@ def create_new_session(team_names: list[str], budget: int = 500):
     roster = Roster(
         id=uuid.uuid4().int >> 96,
         lastUpdate="",
-        current="goalkeepers",
+        current_role="goalkeepers",
         teams=teams,
         initialBudget=budget
     )

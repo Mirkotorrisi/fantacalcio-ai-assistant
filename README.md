@@ -58,7 +58,7 @@ FastAPI backend for managing fantasy football auctions with NLP parsing (LangCha
 {
   "input_text": "dzeko teamX 150",
   "session_id": "...",
-  "current": "forwards"
+  "current_role": "forwards"
 }
 ```
 

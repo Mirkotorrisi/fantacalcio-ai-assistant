@@ -1,62 +1,63 @@
-Id,R,Nome,Qt.A
-2428,P,Sommer,16
-5876,P,Di Gregorio,16
-4312,P,Maignan,16
-572,P,Meret,16
-5841,P,Svilar,15
-4431,P,Carnesecchi,14
-2521,P,De Gea,14
-2814,P,Provedel,12
-133,P,Skorupski,10
-6966,P,Butez,10
-7179,P,Israel,9
-188,P,Leali,8
-4360,P,Caprile,7
-6641,P,Suzuki,7
-4867,P,Turati,7
-2134,P,Falcone,6
-6462,P,Okoye,6
-761,P,Audero,5
-4957,P,Montipò,5
-2170,P,Milinkovic-Savic V.,4
-6842,P,Sava,4
-2722,P,Ravaglia F.,3
-6482,P,Mandas,3
-574,P,Scuffet,3
-2861,P,Semper,3
-4236,P,Muric,3
-5116,P,Martinez Jo.,2
-2297,P,Rossi F.,1
-4,P,Sportiello,1
-7172,P,Pessina Mas.,1
-4929,P,Ciocci,1
-3,P,Radunovic,1
-2809,P,Vigorito,1
-6505,P,Nava,1
-6184,P,Martinelli T.,1
-6991,P,Siegrist,1
-219,P,Sommariva,1
-1926,P,Di Gennaro,1
-218,P,Perin,1
-1930,P,Pinsoglio,1
-6417,P,Furlanetto,1
-2401,P,Fruchtl,1
-6523,P,Samooja,1
-2815,P,Terracciano,1
-6813,P,Torriani,1
-2845,P,Contini,1
-6662,P,Corvi,1
-5338,P,Rinaldi,1
-2271,P,Nicolas,1
-7169,P,Zelezny,1
-610,P,Gollini,1
-4518,P,Russo A.,1
-2127,P,Satalino,1
-5320,P,Paleari,1
-6210,P,Popa,1
-543,P,Padelli,1
-511,P,Perilli,1
-6125,P,Vasquez D.,1
-7185,P,Nunziante,1
-158,P,Lezzerini,1
-2211,P,Silvestri,1
+Id,R,Nome,Squadra,Qt.A
+2428,P,Sommer,Inter,16
+5876,P,Di Gregorio,Juventus,16
+572,P,Meret,Napoli,16
+4312,P,Maignan,Milan,15
+5841,P,Svilar,Roma,15
+4431,P,Carnesecchi,Atalanta,14
+2521,P,De Gea,Fiorentina,14
+2814,P,Provedel,Lazio,12
+6966,P,Butez,Como,11
+133,P,Skorupski,Bologna,10
+188,P,Leali,Genoa,9
+7179,P,Israel,Torino,8
+4360,P,Caprile,Cagliari,7
+2134,P,Falcone,Lecce,7
+6641,P,Suzuki,Parma,7
+4867,P,Turati,Sassuolo,7
+761,P,Audero,Cremonese,6
+6462,P,Okoye,Udinese,6
+4957,P,Montipò,Verona,5
+2170,P,Milinkovic-Savic V.,Napoli,4
+2861,P,Semper,Pisa,4
+6842,P,Sava,Udinese,4
+2722,P,Ravaglia F.,Bologna,3
+6482,P,Mandas,Lazio,3
+574,P,Scuffet,Pisa,3
+4236,P,Muric,Sassuolo,3
+5116,P,Martinez Jo.,Inter,2
+2297,P,Rossi F.,Atalanta,1
+4,P,Sportiello,Atalanta,1
+7172,P,Pessina Mas.,Bologna,1
+4929,P,Ciocci,Cagliari,1
+3,P,Radunovic,Cagliari,1
+2809,P,Vigorito,Como,1
+6505,P,Nava,Cremonese,1
+6184,P,Martinelli T.,Fiorentina,1
+6991,P,Siegrist,Genoa,1
+219,P,Sommariva,Genoa,1
+1926,P,Di Gennaro,Inter,1
+218,P,Perin,Juventus,1
+1930,P,Pinsoglio,Juventus,1
+6417,P,Furlanetto,Lazio,1
+2401,P,Fruchtl,Lecce,1
+6523,P,Samooja,Lecce,1
+2815,P,Terracciano,Milan,1
+6813,P,Torriani,Milan,1
+2845,P,Contini,Napoli,1
+6662,P,Corvi,Parma,1
+5338,P,Rinaldi,Parma,1
+2271,P,Nicolas,Pisa,1
+7169,P,Zelezny,Roma,1
+610,P,Gollini,Roma,1
+2127,P,Satalino,Sassuolo,1
+5320,P,Paleari,Torino,1
+6210,P,Popa,Torino,1
+543,P,Padelli,Udinese,1
+511,P,Perilli,Verona,1
+6125,P,Vasquez D.,Roma,1
+7185,P,Nunziante,Udinese,1
+158,P,Lezzerini,Fiorentina,1
+2211,P,Silvestri,Cremonese,1
+7236,P,Toniolo,Verona,1
+7261,P,Cavlina,Como,1

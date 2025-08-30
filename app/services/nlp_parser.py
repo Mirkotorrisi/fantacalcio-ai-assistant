@@ -9,7 +9,7 @@ class AuctionParse(BaseModel):
     team: str = Field(...)
     price: int = Field(...)
 
-def parse_auction_text(input_text: str, players_list: list, team_names: list) -> dict:
+def parse_auction_text(input_text: str, players_names: list, team_names: list) -> dict:
 
     parse_auction_template = '''
     Given a human prompt about a player to buy, and a team who bought it, 
@@ -20,14 +20,14 @@ def parse_auction_text(input_text: str, players_list: list, team_names: list) ->
 
     Human prompt: {prompt}
 
-    List of players: {players_list}
+    List of players: {players_names}
 
     List of teams: {team_names}
 
     \n{format_instructions}
     '''
 
-    get_sign_prompt_template = PromptTemplate(input_variables=['players_list', 'team_names'], 
+    get_sign_prompt_template = PromptTemplate(input_variables=['players_names', 'team_names'], 
                                              template=parse_auction_template,
                                             partial_variables={'format_instructions': response_parser.get_format_instructions()})
 
@@ -36,11 +36,11 @@ def parse_auction_text(input_text: str, players_list: list, team_names: list) ->
 
     chain = get_sign_prompt_template | llm | response_parser
 
-    res = chain.invoke(input={'prompt': input_text, 'players_list': players_list, 'team_names': team_names })
+    res = chain.invoke(input={'prompt': input_text, 'players_names': players_names, 'team_names': team_names })
     print(res)
 
     # Validation
-    if res.player not in players_list:
+    if res.player not in players_names:
         raise ValueError(f"Player '{res.player}' not found in the list.")
     if res.team not in team_names:
         raise ValueError(f"Can't find a valid team from your input.")

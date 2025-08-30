@@ -1,101 +1,98 @@
-Id,R,Nome,Qt.A
-2764,A,Martinez L.,34
-2097,A,Kean,33
-2531,A,Lukaku,31
-4730,A,Lookman,29
-4871,A,Thuram,29
-5544,A,David,27
-309,A,Dybala,26
-7008,A,Gimenez,25
-6434,A,Yildiz,24
-2841,A,Vlahovic,24
-4510,A,Leao,24
-5995,A,De Ketelaere,22
-6226,A,Castellanos,21
-6675,A,Dovbyk,21
-531,A,Berardi,21
-5672,A,Dia,20
-6435,A,Krstovic,20
-5734,A,Soulè,20
-608,A,Zapata D.,20
-2137,A,Scamacca,19
-6572,A,Castro S.,19
-785,A,Immobile,19
-7120,A,Lang,19
-6365,A,Ferguson E.,19
-313,A,Morata,18
-4359,A,Piccoli,17
-6967,A,Diao,17
-2038,A,Pinamonti,16
-647,A,Dzeko,15
-6215,A,Lucca,15
-6060,A,Laurientè,15
-7128,A,Kuhn,14
-6646,A,Adams C.,14
-2489,A,Pedro,13
-7023,A,Pellegrino M.,13
-5297,A,Luvumbo,12
-4923,A,Colombo,12
-6164,A,Vitinha O.,12
-4179,A,Gonzalez N.,12
-6519,A,Camarda,12
-5637,A,Davis K.,12
-5336,A,Nzola,12
-4436,A,Cambiaghi,11
-6643,A,Dallinga,10
-2155,A,Cutrone,10
-5918,A,Sulemana K.,9
-6895,A,Dominguez B.,9
-5471,A,Djuric,9
-6145,A,Ngonge,9
-7183,A,Aboukhlal,9
-7017,A,Douvikas,8
-5512,A,De Luca,8
-2061,A,Simeone,8
-6159,A,Sarr A.,8
-6229,A,Tourè E.,7
-7127,A,Addai,7
-5496,A,Johnsen,7
-6409,A,Beltran L.,7
-4463,A,Esposito Se.,7
-7071,A,Esposito F.P.,7
-6556,A,Noslin,7
-479,A,Sanabria,7
-2475,A,Sanchez,7
-7213,A,Frigan,7
-6653,A,Bravo,6
-6630,A,Mosquera,6
-7199,A,Kilicsoy,6
-6243,A,Borrelli,5
-7129,A,Rodriguez Je.,5
-5515,A,Okereke,5
-6669,A,Bonny,5
-6001,A,Banda,5
-7001,A,N'Dri,5
-5455,A,Moreo,5
-1842,A,Pierini,5
-6205,A,Mulattieri,5
-6628,A,Taremi,4
-6207,A,Almqvist,4
-7153,A,Lind,4
-7161,A,Bayo V.,4
-6459,A,Karlsson,3
-5500,A,Cancellieri,3
-6213,A,Brenner,3
-6644,A,Rocha Livramento,3
-5506,A,Ekuban,2
-6836,A,Meister,2
-5845,A,Alvarez A.,2
-247,A,Pavoletti,1
-7027,A,Azon,1
-6657,A,Gabrielloni,1
-505,A,Bonazzoli,1
-6822,A,Ekhator,1
-2012,A,Milik,1
-6667,A,Benedyczak,1
-7171,A,Buffon L.,1
-7158,A,Moro L.,1
-7159,A,Skjellerup,1
-6827,A,Njie,1
-6635,A,Pizarro,1
-7162,A,Giovane,1
+Id,R,Nome,Squadra,Qt.A
+2764,A,Martinez L.,Inter,35
+2097,A,Kean,Fiorentina,32
+4871,A,Thuram,Inter,31
+2531,A,Lukaku,Napoli,30
+4730,A,Lookman,Atalanta,28
+5544,A,David,Juventus,28
+309,A,Dybala,Roma,26
+6434,A,Yildiz,Juventus,25
+2841,A,Vlahovic,Juventus,25
+7008,A,Gimenez,Milan,24
+4510,A,Leao,Milan,23
+5995,A,De Ketelaere,Atalanta,21
+2137,A,Scamacca,Atalanta,20
+6226,A,Castellanos,Lazio,20
+5672,A,Dia,Lazio,20
+6435,A,Krstovic,Atalanta,20
+6675,A,Dovbyk,Roma,20
+531,A,Berardi,Sassuolo,20
+608,A,Zapata D.,Torino,20
+6572,A,Castro S.,Bologna,19
+785,A,Immobile,Bologna,19
+7120,A,Lang,Napoli,19
+5734,A,Soulè,Roma,19
+6365,A,Ferguson E.,Roma,19
+313,A,Morata,Como,18
+4359,A,Piccoli,Fiorentina,17
+6967,A,Diao,Como,17
+647,A,Dzeko,Fiorentina,15
+6060,A,Laurientè,Sassuolo,15
+2038,A,Pinamonti,Sassuolo,15
+6552,A,Orban G.,Verona,15
+7128,A,Kuhn,Como,14
+6215,A,Lucca,Napoli,14
+6646,A,Adams C.,Torino,14
+2489,A,Pedro,Lazio,13
+7023,A,Pellegrino M.,Parma,13
+7252,A,Stulic,Lecce,13
+5297,A,Luvumbo,Cagliari,12
+6164,A,Vitinha O.,Genoa,12
+4179,A,Gonzalez N.,Juventus,12
+5336,A,Nzola,Pisa,12
+4436,A,Cambiaghi,Bologna,11
+4923,A,Colombo,Genoa,11
+6519,A,Camarda,Lecce,11
+5637,A,Davis K.,Udinese,11
+6643,A,Dallinga,Bologna,10
+2155,A,Cutrone,Parma,10
+5918,A,Sulemana K.,Atalanta,9
+6895,A,Dominguez B.,Bologna,9
+7017,A,Douvikas,Como,9
+5471,A,Djuric,Parma,9
+6145,A,Ngonge,Torino,9
+7183,A,Aboukhlal,Torino,9
+7249,A,Buksa,Udinese,9
+5512,A,De Luca,Cremonese,8
+2061,A,Simeone,Torino,8
+6159,A,Sarr A.,Verona,8
+7127,A,Addai,Como,7
+5496,A,Johnsen,Cremonese,7
+6409,A,Beltran L.,Fiorentina,7
+4463,A,Esposito Se.,Cagliari,7
+6669,A,Bonny,Inter,7
+7071,A,Esposito F.P.,Inter,7
+6556,A,Noslin,Lazio,7
+479,A,Sanabria,Cremonese,7
+2475,A,Sanchez,Udinese,7
+7213,A,Frigan,Parma,7
+7129,A,Rodriguez Je.,Como,6
+5455,A,Moreo,Pisa,6
+6653,A,Bravo,Udinese,6
+6630,A,Mosquera,Verona,6
+7199,A,Kilicsoy,Cagliari,6
+6243,A,Borrelli,Cagliari,5
+5515,A,Okereke,Cremonese,5
+6001,A,Banda,Lecce,5
+7001,A,N'Dri,Lecce,5
+1842,A,Pierini,Sassuolo,5
+505,A,Bonazzoli,Cremonese,4
+6628,A,Taremi,Inter,4
+6207,A,Almqvist,Parma,4
+7153,A,Lind,Pisa,4
+7161,A,Bayo V.,Udinese,4
+6459,A,Karlsson,Bologna,3
+5500,A,Cancellieri,Lazio,3
+6836,A,Meister,Pisa,3
+7162,A,Giovane,Verona,3
+6644,A,Rocha Livramento,Verona,3
+5506,A,Ekuban,Genoa,2
+247,A,Pavoletti,Cagliari,1
+6657,A,Gabrielloni,Como,1
+6822,A,Ekhator,Genoa,1
+2012,A,Milik,Juventus,1
+6667,A,Benedyczak,Parma,1
+7171,A,Buffon L.,Pisa,1
+7158,A,Moro L.,Sassuolo,1
+7159,A,Skjellerup,Sassuolo,1
+6827,A,Njie,Torino,1
