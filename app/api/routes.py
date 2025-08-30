@@ -1,6 +1,7 @@
 
 from fastapi import APIRouter, File, Form, Query, HTTPException, UploadFile
-from app.models.schema import InitSessionRequest, UpdateAuctionRequest, Roster
+from app.models.schema import DeletePlayerRequest, InitSessionRequest, UpdateAuctionRequest, Roster
+from app.services.delete_player import delete_player_from_roster
 from app.services.export_rosters import export_roster
 from app.services.get_session_and_players import get_session_and_players
 from app.services.transcribe_audio import transcribe_audio
@@ -88,4 +89,16 @@ def export_user_rosters(session_id: str = Query(...)):
         return export_roster(Roster(**rosters))
     except Exception as e:
         logging.error(f"Error exporting rosters: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@router.post("/delete-player")
+def delete_player(request: DeletePlayerRequest):
+    """Delete a player from a roster and refunds the paid price to the team"""
+    try:
+        logging.info(f"Deleting the player {request.player_name} from team {request.team_name}")
+        rosters = get_rosters(request.session_id)
+        updated_rosters = delete_player_from_roster(rosters, request)
+        return Roster(**updated_rosters)
+    except Exception as e:
+        logging.error(f"Error deleting player: {e}")
         raise HTTPException(status_code=500, detail=str(e))

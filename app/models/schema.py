@@ -1,6 +1,13 @@
 from pydantic import BaseModel
 
 
+class DeletePlayerRequest(BaseModel):
+    session_id: str
+    current_role: str
+    player_name: str
+    team_name: str
+
+
 class UpdateAuctionRequest(BaseModel):
     input_text: str
     session_id: str

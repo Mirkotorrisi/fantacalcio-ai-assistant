@@ -104,6 +104,52 @@ FastAPI backend for managing fantasy football auctions with NLP parsing (LangCha
 }
 ```
 
+### 5. Get the roster's CSV file (for LegheFantacalcio)
+
+`GET /export-rosters?session_id=your-session-id`
+
+**Query Parameters:**
+
+- `session_id`: The rosters session id to export (required)
+
+**Response:**
+
+CSV file
+
+### 6. Delete a player from a team
+
+`POST /delete-player`
+
+**Body Parameters:**
+
+- `session_id`: The rosters session id (required)
+- `team_name`: The team name where to delete the player from (required)
+- `player_name`: The player to delete (required)
+- `current_role`: The player role (required)
+
+**Response:**
+
+```json
+{
+  "goalkeepers": [
+    { "name": "Player1", "price": 123 },
+    { "name": "Player2", "price": 12 }
+  ],
+  "defenders": [
+    { "name": "Player1", "price": 123 },
+    { "name": "Player2", "price": 12 }
+  ],
+  "midfielders": [
+    { "name": "Player1", "price": 123 },
+    { "name": "Player2", "price": 12 }
+  ],
+  "forwards": [
+    { "name": "Player1", "price": 123 },
+    { "name": "Player2", "price": 12 }
+  ]
+}
+```
+
 ## 🧩 Main Components
 
 - **FastAPI**: REST API
