@@ -15,6 +15,8 @@ redis_client = redis.Redis(
 )
 
 def get_rosters(session_id: str):
+    print("retrieving rosters for session:", session_id)
+    print(f"roster:{session_id}")
     data = redis_client.get(f"roster:{session_id}")
     if data:
         return json.loads(data)

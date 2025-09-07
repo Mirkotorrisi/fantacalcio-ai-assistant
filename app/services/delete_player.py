@@ -1,5 +1,7 @@
 from app.core.redis_manager import save_rosters
 from app.models.schema import DeletePlayerRequest, Roster
+import datetime
+
 
 def delete_player_from_roster(rosters: Roster, request: DeletePlayerRequest):
     '''Here we find the player using its team name, player name and role and we remove if from the list'''
@@ -14,7 +16,7 @@ def delete_player_from_roster(rosters: Roster, request: DeletePlayerRequest):
             team['budget'] += player['price']
     # Save the updated rosters
         # Update the last modified time
-    import datetime
     rosters['lastUpdate'] = datetime.datetime.now().isoformat()
     save_rosters(request.session_id, rosters)
+
     return rosters

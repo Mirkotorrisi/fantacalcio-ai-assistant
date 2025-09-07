@@ -1,10 +1,8 @@
 fastapi
-uvicorn
+uvicorn[standard]
 openpyxl
 langchain
 langchain_community
-openai
-pydantic
 openai
 pydantic
 redis

@@ -50,10 +50,12 @@ def process_auction_update(team_names: List[str], players_list: List[Player], se
     session['current_role'] = current_role
     save_rosters(session_id, session)
 
-    return Roster(
+    roster_obj = Roster(
         id=session['id'],
         lastUpdate=session['lastUpdate'],
         current_role=session['current_role'],
         teams=session['teams'],
         initialBudget=session['initialBudget']
     )
+
+    return roster_obj

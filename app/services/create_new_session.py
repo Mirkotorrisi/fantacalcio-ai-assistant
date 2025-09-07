@@ -22,4 +22,5 @@ def create_new_session(team_names: list[str], budget: int = 500):
         initialBudget=budget
     )
     save_rosters(session_id, roster.model_dump())
+
     return session_id, roster
