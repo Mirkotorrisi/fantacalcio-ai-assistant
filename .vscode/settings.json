@@ -1,0 +1,16 @@
+{
+  "python-envs.pythonProjects": [],
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "/bin/zsh",
+      "args": ["-l", "-c", "pipenv shell && exec zsh -l"]
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+  "python.pipenvPath": "/opt/homebrew/bin/pipenv",
+  "python.terminal.activateEnvironment": true,
+  "terminal.integrated.env.osx": {
+    "PATH": "/opt/homebrew/bin:/opt/homebrew/sbin:${env:PATH}"
+  }
+}
